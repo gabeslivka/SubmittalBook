@@ -1,0 +1,20 @@
+{
+  "name": "submittal-book",
+  "version": "1.0.0",
+  "description": "A browser-accessible application for managing submittal documents",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx serve public -l 3000",
+    "dev": "npx serve public -l 3000"
+  },
+  "keywords": [
+    "submittal",
+    "documents",
+    "construction"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
