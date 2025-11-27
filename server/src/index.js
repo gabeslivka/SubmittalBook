@@ -31,6 +31,15 @@ app.get('/api/submittals/search', (req, res) => {
     });
   }
 
+  // Validate query length to prevent abuse
+  const MAX_QUERY_LENGTH = 200;
+  if (typeof query !== 'string' || query.length > MAX_QUERY_LENGTH) {
+    return res.status(400).json({
+      error: 'Invalid search query',
+      message: `Search query must be a string with maximum ${MAX_QUERY_LENGTH} characters`
+    });
+  }
+
   const results = searchSubmittals(query);
   res.json({
     query,
