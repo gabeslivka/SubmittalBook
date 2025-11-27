@@ -40,17 +40,46 @@ function setupEventListeners() {
 }
 
 /**
+ * Show a toast notification
+ * @param {string} message - The message to display
+ */
+function showToast(message) {
+    // Remove existing toast if any
+    const existingToast = document.querySelector('.toast');
+    if (existingToast) {
+        existingToast.remove();
+    }
+
+    // Create toast element
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    document.body.appendChild(toast);
+
+    // Trigger animation
+    requestAnimationFrame(() => {
+        toast.classList.add('show');
+    });
+
+    // Remove toast after 3 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 300);
+    }, 3000);
+}
+
+/**
  * Handle new submittal button click
  */
 function handleNewSubmittal() {
-    alert('New Submittal feature coming soon!');
+    showToast('New Submittal feature coming soon!');
 }
 
 /**
  * Handle view all button click
  */
 function handleViewAll() {
-    alert('View All Submittals feature coming soon!');
+    showToast('View All Submittals feature coming soon!');
 }
 
 /**
